@@ -70,14 +70,14 @@ sudo chmod +x /usr/local/bin/containerd-shim-wasmtime*
 sudo nano /var/snap/microk8s/current/args/containerd-template.toml
 ```
 
-Add this block near other runtimes:
+Add this block to the bottom of the file:
 
 ```toml
+# --- Wasmtime runtime (minimal) ---
 [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasmtime]
   runtime_type = "io.containerd.wasmtime.v1"
-# If your binary isn’t named containerd-shim-wasmtime-v1, also set:
-#  [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasmtime.options]
-#    BinaryName = "containerd-shim-wasmtime"
+  privileged_without_host_devices = false
+# --- end Wasmtime block -
 ```
 
 Apply the changes by restarting only MicroK8s daemons (not the OS containerd):
