@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-wasm
+  annotations:
+    module.wasm.image/variant: "compat"   # optional; the image already has this
+spec:
+  runtimeClassName: wasmtime
+  restartPolicy: Never
+  containers:
+  - name: hello
+    image: localhost:32000/hello-wasm:compat-v1
+    imagePullPolicy: IfNotPresent
+    command: ["app.wasm"]                 # OK to omit; it matches your image Entrypoint
+    env:
+    - name: WHO
+      value: "Gustavo"
