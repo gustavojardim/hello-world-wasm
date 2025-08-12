@@ -1,0 +1,8 @@
+{
+  "created": "2025-08-12T17:42:12Z",
+  "architecture": "wasm",
+  "os": "linux",
+  "rootfs": { "type": "layers", "diff_ids": ["sha256:d28143dfa79ff1fa8d76b421f9ce568bdc70b76d73868e7ba5770dbf884ad848"] },
+  "config": { "Entrypoint": ["/app.wasm"] },
+  "annotations": { "module.wasm.image/variant": "compat" }
+}

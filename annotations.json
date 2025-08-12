@@ -1,0 +1,9 @@
+{
+  "$manifest": {
+    "module.wasm.image/variant": "compat",
+    "io.containerd.wasm.type": "compat"
+  },
+  "app.wasm": {
+    "org.opencontainers.image.title": "app.wasm"
+  }
+}
